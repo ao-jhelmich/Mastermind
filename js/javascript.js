@@ -11,6 +11,15 @@ var tempColorCode = [];
 
 GetRandomColours();
 
+
+function addEventLis() {
+	for(var i = 0; i < colors.length; i++){
+		var element = document.getElementById(colors[i]);
+		element.addEventListener("click", function () {UserInput(pink)});
+}
+
+addEventLis();
+/*
 var pink = "pink";
 
 var elementPink = document.getElementById(pink).addEventListener("click", function () {
@@ -37,6 +46,7 @@ var elementPurple = document.getElementById("purple").addEventListener("click", 
 var elementWhite = document.getElementById("white").addEventListener("click", function () {
 	UserInput('white');
 });
+*/
 
 function pushCctoTc () {
  	var i = 0;
