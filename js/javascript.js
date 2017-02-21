@@ -1,9 +1,4 @@
 (function() {
-
-var result = "round" + +1;
-console.log(result);
-
-
 var colors = ["red", "orange", "green", "yellow", "blue",  "purple", "white", "pink"];
 var codeLength = 4;
 
@@ -16,8 +11,10 @@ var tempColorCode = [];
 
 GetRandomColours();
 
-var elementPink = document.getElementById("pink").addEventListener("click", function () {
-	UserInput('pink');
+var pink = "pink";
+
+var elementPink = document.getElementById(pink).addEventListener("click", function () {
+	UserInput(pink);
 });
 var elementRed = document.getElementById("red").addEventListener("click", function () {
 	UserInput('red');
