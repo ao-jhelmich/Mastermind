@@ -5,48 +5,53 @@ var codeLength = 4;
 var x = 0;
 var j = 1;
 
+var gameLength = 10;
+var userChoices = 4;
+
 var colorCode = [];
 var userInput = [];
 var tempColorCode = [];
 
+createUserBar();
+createGrid();
 GetRandomColours();
+addEventLis();
 
-
-function addEventLis() {
-	for(var i = 0; i < colors.length; i++){
-		var element = document.getElementById(colors[i]);
-		element.addEventListener("click", function () {UserInput(pink)});
+function createUserBar(){
+	var div = document.createElement('div');
+	div.id = "input1";
+	colors.forEach( function(v, i) {
+		var para = document.createElement("button");
+		para.id = colors[i];
+		var element = document.getElementById("input1");
+		element.appendChild(para);
+	});
 }
 
-addEventLis();
-/*
-var pink = "pink";
+function createGrid() {
+	for(var i = 1; i < gameLength; i++){	
+		var round = "round" + +i;
+		var div = document.createElement('div');
+		div.id = round;
+		document.getElementById('playField').appendChild(div);
+	
+		console.log(i);
+			for(var z = 0; z < userChoices; z++){
+				console.log(j);
+				var btn = document.createElement("button");
+				btn.className = round;
+				div.appendChild(btn);
+			}
+	}
+}
 
-var elementPink = document.getElementById(pink).addEventListener("click", function () {
-	UserInput(pink);
-});
-var elementRed = document.getElementById("red").addEventListener("click", function () {
-	UserInput('red');
-});
-var elementOrange = document.getElementById("orange").addEventListener("click", function () {
-	UserInput('orange');
-});
-var elementYellow = document.getElementById("yellow").addEventListener("click", function () {
-	UserInput('yellow');
-});
-var elementGreen = document.getElementById("green").addEventListener("click", function () {
-	UserInput('green');
-});
-var elementBlue = document.getElementById("blue").addEventListener("click", function () {
-	UserInput('blue');
-});
-var elementPurple = document.getElementById("purple").addEventListener("click", function () {
-	UserInput('purple');
-});
-var elementWhite = document.getElementById("white").addEventListener("click", function () {
-	UserInput('white');
-});
-*/
+function addEventLis() {
+	colors.forEach( function(v, i) {
+		var element = document.getElementById(colors[i]);
+		element.addEventListener("click", function () {UserInput(colors[i])});
+	});
+}
+
 
 function pushCctoTc () {
  	var i = 0;
