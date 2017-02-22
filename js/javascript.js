@@ -2,6 +2,8 @@
 var colors = ["red", "orange", "green", "yellow", "blue",  "purple", "white", "pink"];
 var codeLength = 4;
 
+test;
+
 var x = 0;
 var j = 1;
 
