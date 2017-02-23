@@ -1,6 +1,5 @@
 (function() {
 var colors = ["red", "orange", "green", "yellow", "blue",  "purple", "white", "pink"];
-var codeLength = 4;
 
 var x = 0;
 var j = 1;
@@ -34,10 +33,7 @@ function createGrid() {
 		var div = document.createElement('div');
 		div.id = round;
 		document.getElementById('playField').appendChild(div);
-	
-		console.log(i);
 			for(var z = 0; z < userChoices; z++){
-				console.log(j);
 				var btn = document.createElement("button");
 				btn.className = round;
 				div.appendChild(btn);
@@ -62,7 +58,7 @@ function pushCctoTc () {
 }
 
 function GetRandomColours () {
-	for(var i = 1; i <= codeLength;i++){
+	for(var i = 1; i <= userChoices;i++){
 		var num = Math.floor(Math.random() * 7);
 			colorCode.push(colors[num]);
 	}
@@ -82,7 +78,7 @@ function UserInput(color){
 function changeColor (argument) {
 
 	console.log("x = " + x);
-	if (x === 4) {
+	if (x === userChoices) {
 		j++;
 		x = 0;
 	};
@@ -111,6 +107,7 @@ function checkPattern(){
 			userInput.splice(i, 1);
 			i--;
 			blackPin++;
+			console.log(blackPin);
 		}
 	}
 	for (var i = 0; i <= userInput.length -1; i++) {
@@ -121,12 +118,13 @@ function checkPattern(){
 			userInput.splice(i, 1);
 			i--;
 			whitePin++;
+			console.log(whitePin);
 		}else{
 			console.log(userInput[i], 'bestaat niet')
 		}
 	}
 	userInput.splice(0);
-	if(blackPin === codeLength){
+	if(blackPin === userChoices){
 		return victory();
 	}
 }
