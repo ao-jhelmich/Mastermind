@@ -1,5 +1,4 @@
 (function() {
-game();
 function optionMenu() {
 
 }
@@ -10,7 +9,7 @@ function game() {
 	var x = 0;
 	var j = 1;
 
-	var gameLength = 4;
+	var gameLength = 13;
 	var userChoices = 4;
 
 	var colorCode = [];
