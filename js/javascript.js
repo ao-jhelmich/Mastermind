@@ -1,4 +1,5 @@
 (function() {
+	game();
 function optionMenu() {
 
 }
