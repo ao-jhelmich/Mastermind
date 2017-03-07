@@ -2,16 +2,19 @@
 margin: 0px;
 padding: 0px;
 }
+label{
+	
+}
 .wrapper{
 	padding: 10px;
 	width: 500px;
 	border: solid black 1px;
 	margin: auto auto;
 }
-.pins{
+#pins{
 	width: 45px;	
 }
-.pins button{
+.pins{
 	margin:0px;
 	padding: 5px;
 }
@@ -20,20 +23,18 @@ padding: 0px;
     padding: 15px 15px;
     margin-bottom: 5px;
 }
-.result{
-	float: right;
-}
 #playField button{
 	margin-right: 5px;
-}
+}	
 #playField{
+	position: relative;
+	top: -295px;
 	margin-left: 200px;
 	margin-right: auto;
 	width: 160px;
 }
 
 #input1{
-	float: left;
 	width: 32px;
 }
 #black{
