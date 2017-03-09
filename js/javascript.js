@@ -1,7 +1,38 @@
 (function() {
-	game();
+	optionMenu();
 function optionMenu() {
+	// creating the html layout
+	var x = document.createElement("h2");
+	x.innerHTML="Mastermind keuze menu.";
+	var element = document.getElementById("wrapper");
+	element.appendChild(x);
 
+	var l1 = document.createElement("label");
+	l1.innerHTML="Aantal keuzes:";
+	element.appendChild(l1);
+
+	var i1 = document.createElement("INPUT");
+	i1.setAttribute("type", "number");
+	element.appendChild(i1);
+
+	var br1 = document.createElement("br");
+	element.appendChild(br1);
+
+	var l2 = document.createElement("label");
+	l2.innerHTML="Lengte kleurencode:";
+	element.appendChild(l2);
+
+	var i1 = document.createElement("INPUT");
+	i1.setAttribute("type", "number");
+	element.appendChild(i1);
+
+	var br2 = document.createElement("br");
+	element.appendChild(br2);
+
+ 	var btn = document.createElement("button");
+ 	btn.id = "button";
+ 	btn.innerHTML="Play!";
+	element.appendChild(btn);
 }
 
 function game() {
