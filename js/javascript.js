@@ -1,5 +1,5 @@
 (function() {
-	optionMenu();
+	game();
 function optionMenu() {
 	// creating the html layout
 	var x = document.createElement("h2");
@@ -13,6 +13,7 @@ function optionMenu() {
 
 	var i1 = document.createElement("INPUT");
 	i1.setAttribute("type", "number");
+	i1.id = "gameLength";
 	element.appendChild(i1);
 
 	var br1 = document.createElement("br");
@@ -22,9 +23,10 @@ function optionMenu() {
 	l2.innerHTML="Lengte kleurencode:";
 	element.appendChild(l2);
 
-	var i1 = document.createElement("INPUT");
-	i1.setAttribute("type", "number");
-	element.appendChild(i1);
+	var i2 = document.createElement("INPUT");
+	i2.setAttribute("type", "number");
+	i2.id = "userChoices";
+	element.appendChild(i2);
 
 	var br2 = document.createElement("br");
 	element.appendChild(br2);
@@ -33,15 +35,23 @@ function optionMenu() {
  	btn.id = "button";
  	btn.innerHTML="Play!";
 	element.appendChild(btn);
+
+	btn.addEventListener("click", function(){
+		var uC = document.getElementById("userChoices").value;
+		var gL = document.getElementById("gameLength").value;
+			game(uC, gL);
+		uC = null;
+		gL = null;
+	});
 }
 
-function game() {
+function game(numberUc, numberGl) {
 	var colors = ["red", "orange", "green", "yellow", "blue",  "purple", "white", "pink"];
 
 	var x = 0;
 	var j = 1;
 
-	var gameLength = 13;
+	var gameLength = 10;
 	var userChoices = 4;
 
 	var colorCode = [];
@@ -65,7 +75,7 @@ function game() {
 	}
 
 	function createGrid() {
-		for(var i = 1; i < gameLength; i++){	
+		for(var i = 1; i < gameLength + 1; i++){	
 			var round = "round" + +i;
 			var div = document.createElement('div');
 			div.id = round;
