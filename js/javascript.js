@@ -49,9 +49,9 @@ function optionMenu() {
 	function getValue() {
 		var uC = document.getElementById("userChoices").value;
 		var gL = document.getElementById("gameLength").value;
+			console.log("gL = " + gL);
 			clearOptionMenu();
 			game(uC, gL);
-			console.log("test");
 	}
 
 	
@@ -72,10 +72,12 @@ function game(numberUc, numberGl) {
 	var x = 0;
 	var j = 1;	
 
-	var temp1 = numberGl;
+	var number1 = numberUc * 1;
+	var number2 = numberGl * 1;
+	console.log(number2);
 
-	var gameLength = temp1;
-	var userChoices = numberUc;
+	var gameLength = number2;
+	var userChoices = number1;
 
 	var colorCode = [];
 	var userInput = [];
@@ -152,8 +154,8 @@ function game(numberUc, numberGl) {
 			console.log(pins);
 		}
 	}
-	*/
 	changeColorPins("black", 5)
+	*/
 
 	function changeColorChoices (argument) {
 
@@ -164,9 +166,6 @@ function game(numberUc, numberGl) {
 		};
 		var result = "round" + +j;
 		var elementRound1 = document.getElementsByClassName(result)[x].style.backgroundColor = argument;
-
-		// var x = document.getElementsByTagName("H1")[1].getAttribute("class"); 
-	    // document.getElementById("demo").innerHTML = x;
 	}
 
 
