@@ -49,9 +49,9 @@ function optionMenu() {
 	function getValue() {
 		var uC = document.getElementById("userChoices").value;
 		var gL = document.getElementById("gameLength").value;
+			clearOptionMenu();
 			game(uC, gL);
 			console.log("test");
-			clearOptionMenu();
 	}
 
 	
@@ -59,11 +59,10 @@ function optionMenu() {
 
 
 function clearOptionMenu() {
-		var classname = document.getElementsByClassName('optionMenu');
-		console.log(classname);
-		while(classname[0]) {
-    		classname[0].parentNode.removeChild(paras[0]);
-		}​;
+		var elements = document.getElementsByClassName("optionMenu");
+    	while(elements.length > 0){
+       		elements[0].parentNode.removeChild(elements[0]);
+    	}
 	}
 
 function game(numberUc, numberGl) {
@@ -147,13 +146,13 @@ function game(numberUc, numberGl) {
 	 	}
 	}
 
-	function changeColorPins (color, amount) {
+	/*function changeColorPins (color, amount) {
 		for(var i = 0; i < amount; i++){
 			var pins = document.getElementsByClassName('pins')[i].style.backgroundColor = color;
 			console.log(pins);
 		}
 	}
-
+	*/
 	changeColorPins("black", 5)
 
 	function changeColorChoices (argument) {
