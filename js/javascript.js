@@ -1,58 +1,82 @@
 (function() {
-	game();
+	optionMenu();
 function optionMenu() {
 	// creating the html layout
 	var x = document.createElement("h2");
+	x.className = "optionMenu";
 	x.innerHTML="Mastermind keuze menu.";
 	var element = document.getElementById("wrapper");
 	element.appendChild(x);
 
 	var l1 = document.createElement("label");
+	l1.className = "optionMenu";
 	l1.innerHTML="Aantal keuzes:";
 	element.appendChild(l1);
 
 	var i1 = document.createElement("INPUT");
+	i1.className = "optionMenu";
 	i1.setAttribute("type", "number");
 	i1.id = "gameLength";
 	element.appendChild(i1);
 
 	var br1 = document.createElement("br");
+	br1.className = "optionMenu";
 	element.appendChild(br1);
 
 	var l2 = document.createElement("label");
+	l2.className = "optionMenu";
 	l2.innerHTML="Lengte kleurencode:";
 	element.appendChild(l2);
 
 	var i2 = document.createElement("INPUT");
 	i2.setAttribute("type", "number");
+	i2.className = "optionMenu";
 	i2.id = "userChoices";
 	element.appendChild(i2);
 
 	var br2 = document.createElement("br");
+	br2.className = "optionMenu";
 	element.appendChild(br2);
 
  	var btn = document.createElement("button");
+ 	btn.className = "optionMenu";
  	btn.id = "button";
  	btn.innerHTML="Play!";
 	element.appendChild(btn);
 
-	btn.addEventListener("click", function(){
+	btn.addEventListener("click", getValue);
+
+	function getValue() {
 		var uC = document.getElementById("userChoices").value;
 		var gL = document.getElementById("gameLength").value;
 			game(uC, gL);
-		uC = null;
-		gL = null;
-	});
+			console.log("test");
+			clearOptionMenu();
+	}
+
+	
 }
 
+
+function clearOptionMenu() {
+		var classname = document.getElementsByClassName('optionMenu');
+		console.log(classname);
+		while(classname[0]) {
+    		classname[0].parentNode.removeChild(paras[0]);
+		}​;
+	}
+
 function game(numberUc, numberGl) {
+
 	var colors = ["red", "orange", "green", "yellow", "blue",  "purple", "white", "pink"];
 
 	var x = 0;
-	var j = 1;
+	var j = 1;	
 
-	var gameLength = 10;
-	var userChoices = 4;
+	var temp1 = numberGl;
+
+	var gameLength = temp1;
+	var userChoices = numberUc;
 
 	var colorCode = [];
 	var userInput = [];
@@ -76,6 +100,7 @@ function game(numberUc, numberGl) {
 
 	function createGrid() {
 		for(var i = 1; i < gameLength + 1; i++){	
+			console.log(i);
 			var round = "round" + +i;
 			var div = document.createElement('div');
 			div.id = round;
