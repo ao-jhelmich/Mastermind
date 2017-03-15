@@ -2,7 +2,7 @@
 margin: 0px;
 padding: 0px;
 }
-label{
+#optionMenu{
 	display: inline-block;
 	width: 150px;
 }
@@ -18,6 +18,12 @@ label{
 .pins{
 	margin:0px;
 	padding: 5px;
+}
+#playButton{
+	z-index: 999999;
+	float: right;
+	padding: 5px 5px;
+    margin: 5px;
 }
 #button{
     padding: 15px 15px;

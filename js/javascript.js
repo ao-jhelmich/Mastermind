@@ -1,5 +1,13 @@
 (function() {
 	optionMenu();
+
+	var playbtn = document.getElementById('playButton');
+	playbtn.addEventListener("click", reload);
+
+	function reload() {
+		location.reload();
+	}
+
 function optionMenu() {
 	// creating the html layout
 	var x = document.createElement("h2");
@@ -9,6 +17,7 @@ function optionMenu() {
 	element.appendChild(x);
 
 	var l1 = document.createElement("label");
+	l1.id = "optionMenu";
 	l1.className = "optionMenu";
 	l1.innerHTML="Aantal keuzes:";
 	element.appendChild(l1);
@@ -24,6 +33,7 @@ function optionMenu() {
 	element.appendChild(br1);
 
 	var l2 = document.createElement("label");
+	l2.id = "optionMenu";
 	l2.className = "optionMenu";
 	l2.innerHTML="Lengte kleurencode:";
 	element.appendChild(l2);
@@ -49,7 +59,14 @@ function optionMenu() {
 	function getValue() {
 		var uC = document.getElementById("userChoices").value;
 		var gL = document.getElementById("gameLength").value;
-			console.log("gL = " + gL);
+
+			if(uC === null){
+				uC = 4;
+			}
+
+			if (gL === null) {
+				gL = 10;
+			}
 			clearOptionMenu();
 			game(uC, gL);
 	}
@@ -74,7 +91,6 @@ function game(numberUc, numberGl) {
 
 	var number1 = numberUc * 1;
 	var number2 = numberGl * 1;
-	console.log(number2);
 
 	var gameLength = number2;
 	var userChoices = number1;
@@ -101,7 +117,6 @@ function game(numberUc, numberGl) {
 
 	function createGrid() {
 		for(var i = 1; i < gameLength + 1; i++){	
-			console.log(i);
 			var round = "round" + +i;
 			var div = document.createElement('div');
 			div.id = round;
@@ -110,7 +125,15 @@ function game(numberUc, numberGl) {
 					var btn = document.createElement("button");
 					btn.className = round;
 					div.appendChild(btn);
+
 				}
+				var blackPins = document.createElement('label');
+				blackPins.innerHTML = "Black pins: ";
+				div.appendChild(blackPins);
+
+				var whitePins = document.createElement('label');
+				whitePins.innerHTML = "White pins: ";
+				div.appendChild(whitePins);
 		}
 	}
 
@@ -148,18 +171,7 @@ function game(numberUc, numberGl) {
 	 	}
 	}
 
-	/*function changeColorPins (color, amount) {
-		for(var i = 0; i < amount; i++){
-			var pins = document.getElementsByClassName('pins')[i].style.backgroundColor = color;
-			console.log(pins);
-		}
-	}
-	changeColorPins("black", 5)
-	*/
-
 	function changeColorChoices (argument) {
-
-		console.log("x = " + x);
 		if (x === userChoices) {
 			j++;
 			x = 0;
@@ -186,8 +198,6 @@ function game(numberUc, numberGl) {
 				userInput.splice(i, 1);
 				i--;
 				blackPin++;
-				console.log(blackPin);
-
 			}
 		}
 		for (var i = 0; i <= userInput.length -1; i++) {
@@ -198,14 +208,16 @@ function game(numberUc, numberGl) {
 				userInput.splice(i, 1);
 				i--;
 				whitePin++;
-				console.log(whitePin);
 			}else{
 				console.log(userInput[i], 'bestaat niet')
 			}
 		}
 		userInput.splice(0);
 		tempColorCode.splice(0);
+		console.log("whitepins = " + whitePin);
+		console.log("blackpins = " + blackPin);
 		if(blackPin === userChoices){
+			reload();
 			return victory();
 		}
 	}
