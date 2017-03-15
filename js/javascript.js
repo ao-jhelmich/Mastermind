@@ -57,18 +57,18 @@ function optionMenu() {
 	btn.addEventListener("click", getValue);
 
 	function getValue() {
-		var uC = document.getElementById("userChoices").value;
-		var gL = document.getElementById("gameLength").value;
+		var userChoices = document.getElementById("userChoices").value;
+		var gameLength = document.getElementById("gameLength").value;
 
-			if(uC === null){
-				uC = 4;
+			if(userChoices === null){
+				userChoices = 4;
 			}
 
-			if (gL === null) {
-				gL = 10;
+			if (gameLength === null) {
+				gameLength = 10;
 			}
 			clearOptionMenu();
-			game(uC, gL);
+			game(userChoices, gameLength);
 	}
 
 	
@@ -89,11 +89,8 @@ function game(numberUc, numberGl) {
 	var x = 0;
 	var j = 1;	
 
-	var number1 = numberUc * 1;
-	var number2 = numberGl * 1;
-
-	var gameLength = number2;
-	var userChoices = number1;
+	var gameLength = parseInt(numberGl);
+	var userChoices = parseInt(numberUc);
 
 	var colorCode = [];
 	var userInput = [];
