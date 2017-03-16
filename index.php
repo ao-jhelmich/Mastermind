@@ -1,7 +1,3 @@
-<?php 
-	require('php/main.php');
-?>
-
 <!DOCTYPE html>
 <html>
 <head>

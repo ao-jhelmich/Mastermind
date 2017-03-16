@@ -103,6 +103,16 @@ function game(numberUc, numberGl) {
 	createGrid();
 	GetRandomColours();
 
+	addEventList();
+
+	function addEventList() {
+		colors.forEach( function(v, i){
+			
+			})
+	}
+	
+
+
 	function createUserBar(){
 		colors.forEach( function(v, i) {
 			var para = document.createElement("button");
@@ -110,7 +120,10 @@ function game(numberUc, numberGl) {
 			var element = document.getElementById("input1");
 			element.appendChild(para);
 			var element2 = document.getElementById(colors[i]);
-				element2.addEventListener("click", function () {UserInput(colors[i])});
+				element2.addEventListener("click", function () {
+					UserInput(colors[i])
+				});
+			
 				});
 	}
 
@@ -128,10 +141,12 @@ function game(numberUc, numberGl) {
 				}
 				var blackPins = document.createElement('label');
 				blackPins.innerHTML = "Black pins: ";
+				blackPins.id = "blackPins";
 				div.appendChild(blackPins);
 
 				var whitePins = document.createElement('label');
 				whitePins.innerHTML = "White pins: ";
+				whitePins.id = "whitePins";
 				div.appendChild(whitePins);
 		}
 	}
@@ -154,6 +169,7 @@ function game(numberUc, numberGl) {
 
 	function UserInput(color){
 	 	userInput.push(color);
+	 	console.log(userInput);
 	 	changeColorChoices(color);
 	 	x++;
 	 	if(userInput.length === colorCode.length){
@@ -174,12 +190,20 @@ function game(numberUc, numberGl) {
 
 	// Function that invokes on fictory
 	function victory() {
-		console.log("Congratiolations!");
-		alert("kut");
+		console.log("Congratiolations!")
+	}
+
+	changePinsTotal();
+	function changePinsTotal (color, amount) {
+		var colorTest = color;
+		var amountTest = amount;
+
+		var element = document.getElementById(colorTest + "Pins");
+		element.innerHTML = colorTest + " pins: " + amountTest;
 	}
 
 	function checkPattern(){
-		pushcolorCodeTotempColorCode
+		pushcolorCodeTotempColorCode();
 		var blackPin =  0;
 		var whitePin = 0;
 		for (var i = 0; i <= userInput.length -1; i++) {
@@ -208,7 +232,7 @@ function game(numberUc, numberGl) {
 		console.log("whitepins = " + whitePin);
 		console.log("blackpins = " + blackPin);
 		if(blackPin === userChoices){
-			reload();
+			var answer = prompt("Play another game");
 			return victory();
 		}
 	}
