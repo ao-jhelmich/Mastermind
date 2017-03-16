@@ -8,8 +8,9 @@
 		location.reload();
 	}
 
+//generates the option menu
 function optionMenu() {
-	// creating the html layout
+	
 	var x = document.createElement("h2");
 	x.className = "optionMenu";
 	x.innerHTML="Mastermind keuze menu.";
@@ -54,8 +55,17 @@ function optionMenu() {
  	btn.innerHTML="Play!";
 	element.appendChild(btn);
 
+	function clearOptionMenu() {
+		var elements = document.getElementsByClassName("optionMenu");
+    	while(elements.length > 0){
+       		elements[0].parentNode.removeChild(elements[0]);
+    	}
+	}
+
 	btn.addEventListener("click", getValue);
 
+
+	//gets the value of the userinput en gives it as a param to Game()
 	function getValue() {
 		var userChoices = document.getElementById("userChoices").value;
 		var gameLength = document.getElementById("gameLength").value;
@@ -69,18 +79,11 @@ function optionMenu() {
 			}
 			clearOptionMenu();
 			game(userChoices, gameLength);
+
 	}
 
 	
 }
-
-
-function clearOptionMenu() {
-		var elements = document.getElementsByClassName("optionMenu");
-    	while(elements.length > 0){
-       		elements[0].parentNode.removeChild(elements[0]);
-    	}
-	}
 
 function game(numberUc, numberGl) {
 
@@ -101,8 +104,6 @@ function game(numberUc, numberGl) {
 	GetRandomColours();
 
 	function createUserBar(){
-		var div = document.createElement('div');
-		div.id = "input1";
 		colors.forEach( function(v, i) {
 			var para = document.createElement("button");
 			para.id = colors[i];

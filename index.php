@@ -1,3 +1,7 @@
+<?php 
+	require('php/main.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +13,10 @@
 <body>
 	<button id="playButton">options</button>
 	<div class="wrapper" id="wrapper">
-		<div class="big-buttons">
 			<div id="input1">
 			</div>
-				<div id="playField">			
-				</div>
-		</div>
+			<div id="playField">			
+			</div>
 	</div>
 	<script src="js/javascript.js"></script>
 </body>
