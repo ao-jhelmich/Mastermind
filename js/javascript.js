@@ -1,7 +1,6 @@
 (function() {
 	optionMenu();
 
-	alert(test);
 	var playbtn = document.getElementById('playButton');
 	playbtn.addEventListener("click", reload);
 
