@@ -99,7 +99,6 @@ function game(numberUc, numberGl) {
 	createUserBar();
 	createGrid();
 	GetRandomColours();
-	addEventLis();
 
 	function createUserBar(){
 		var div = document.createElement('div');
@@ -109,7 +108,9 @@ function game(numberUc, numberGl) {
 			para.id = colors[i];
 			var element = document.getElementById("input1");
 			element.appendChild(para);
-		});
+			var element2 = document.getElementById(colors[i]);
+				element2.addEventListener("click", function () {UserInput(colors[i])});
+				});
 	}
 
 	function createGrid() {
@@ -134,15 +135,7 @@ function game(numberUc, numberGl) {
 		}
 	}
 
-	function addEventLis() {
-		colors.forEach( function(v, i) {
-			var element = document.getElementById(colors[i]);
-			element.addEventListener("click", function () {UserInput(colors[i])});
-		});
-	}
-
-
-	function pushCctoTc () {
+	function pushcolorCodeTotempColorCode () {
 	 	var i = 0;
 		colorCode.forEach( function() {
 			tempColorCode.push(colorCode[i]);
@@ -185,7 +178,7 @@ function game(numberUc, numberGl) {
 	}
 
 	function checkPattern(){
-		pushCctoTc();
+		pushcolorCodeTotempColorCode
 		var blackPin =  0;
 		var whitePin = 0;
 		for (var i = 0; i <= userInput.length -1; i++) {
