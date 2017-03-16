@@ -90,7 +90,8 @@ function game(numberUc, numberGl) {
 	var colors = ["red", "orange", "green", "yellow", "blue",  "purple", "white", "pink"];
 
 	var x = 0;
-	var j = 1;	
+	var j = 1;
+	var h = 1;	
 
 	var gameLength = parseInt(numberGl);
 	var userChoices = parseInt(numberUc);
@@ -193,13 +194,15 @@ function game(numberUc, numberGl) {
 		console.log("Congratiolations!")
 	}
 
-	changePinsTotal();
 	function changePinsTotal (color, amount) {
-		var colorTest = color;
-		var amountTest = amount;
+		var id = color + "Pins" + +h;
+		String(id);
+		console.log(id);
 
-		var element = document.getElementById(colorTest + "Pins");
-		element.innerHTML = colorTest + " pins: " + amountTest;
+		var element = document.getElementById(id);
+		element.innerHTML = color + " pins: " + amount;
+		h++;
+	
 	}
 
 	function checkPattern(){
@@ -231,8 +234,12 @@ function game(numberUc, numberGl) {
 		tempColorCode.splice(0);
 		console.log("whitepins = " + whitePin);
 		console.log("blackpins = " + blackPin);
+		
 		if(blackPin === userChoices){
 			var answer = prompt("Play another game");
+			if (answer.toLowerCase() === "yes") {
+				reload()
+			}
 			return victory();
 		}
 	}
