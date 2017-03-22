@@ -8,12 +8,17 @@
 </head>
 <body>
 	<button id="playButton">options</button>
+	<h1><time>00:00:00</time></h1>
+	<button id="start">start</button>
+	<button id="stop">stop</button>
+	<button id="clear">clear</button>
 	<div class="wrapper" id="wrapper">
 			<div id="input1">
 			</div>
 			<div id="playField">			
 			</div>
 	</div>
-	<script src="js/javascript.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/stopwatch.js"></script>
 </body>
 </html>
