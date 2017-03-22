@@ -113,7 +113,7 @@ function game(numberUc, numberGl) {
 	}
 	
 
-
+	//create the user bar
 	function createUserBar(){
 		colors.forEach( function(v, i) {
 			var para = document.createElement("button");
@@ -128,6 +128,7 @@ function game(numberUc, numberGl) {
 				});
 	}
 
+	//creates the playfield
 	function createGrid() {
 		for(var i = 1; i < gameLength + 1; i++){	
 			var round = "round" + +i;
@@ -140,6 +141,8 @@ function game(numberUc, numberGl) {
 					div.appendChild(btn);
 
 				}
+
+				//adds the text next to the grid for each round
 				var blackPins = document.createElement('label');
 				blackPins.innerHTML = "Black pins: ";
 				blackPins.id = "blackPins";
@@ -188,9 +191,14 @@ function game(numberUc, numberGl) {
 	}
 
 
-	// Function that invokes on fictory
+	//user succeeded
 	function victory() {
-		console.log("Congratiolations!")
+		console.log("Congratiolations!");
+		var name = "test";
+		window.location.href = "php/main.php?name=" + name 
+								+ "&time=" + colorCode 
+								+ "&gameLength=" + gameLength
+								+ "&userChoices=" + userChoices; 
 	}
 
 	function changePinsTotal (color, amount) {
@@ -235,10 +243,10 @@ function game(numberUc, numberGl) {
 		console.log("blackpins = " + blackPin);
 		
 		if(blackPin === userChoices){
-			var answer = prompt("Play another game");
-			if (answer.toLowerCase() === "yes") {
-				reload()
-			}
+			//var answer = prompt("Play another game");
+			//if (answer.toLowerCase() === "yes") {
+			//	reload()
+			//}
 			return victory();
 		}
 	}
