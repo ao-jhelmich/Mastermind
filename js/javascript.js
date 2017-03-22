@@ -170,7 +170,6 @@ function game(numberUc, numberGl) {
 
 	function UserInput(color){
 	 	userInput.push(color);
-	 	console.log(userInput);
 	 	changeColorChoices(color);
 	 	x++;
 	 	if(userInput.length === colorCode.length){
