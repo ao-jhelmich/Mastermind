@@ -103,6 +103,7 @@ function game(numberUc, numberGl) {
 	createUserBar();
 	createGrid();
 	GetRandomColours();
+	toggle();
 
 	addEventList();
 
@@ -194,7 +195,7 @@ function game(numberUc, numberGl) {
 	//user succeeded
 	function victory() {
 		console.log("Congratiolations!");
-		var name = "test";
+		var name = prompt("Onder welke naam wil je je score opslaan?");
 		window.location.href = "php/main.php?name=" + name 
 								+ "&time=" + colorCode 
 								+ "&gameLength=" + gameLength
@@ -242,13 +243,9 @@ function game(numberUc, numberGl) {
 		console.log("whitepins = " + whitePin);
 		console.log("blackpins = " + blackPin);
 		
-		if(blackPin === userChoices){
-			//var answer = prompt("Play another game");
-			//if (answer.toLowerCase() === "yes") {
-			//	reload()
-			//}
+		if(blackPin === userChoices)
 			return victory();
-		}
+		
 	}
 }
 })();

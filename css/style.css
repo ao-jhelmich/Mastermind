@@ -2,6 +2,9 @@
 margin: 0px;
 padding: 0px;
 }
+h1{
+	float: left;
+}
 #optionMenu{
 	display: inline-block;
 	width: 150px;

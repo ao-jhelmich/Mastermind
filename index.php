@@ -9,9 +9,6 @@
 <body>
 	<button id="playButton">options</button>
 	<h1><time>00:00:00</time></h1>
-	<button id="start">start</button>
-	<button id="stop">stop</button>
-	<button id="clear">clear</button>
 	<div class="wrapper" id="wrapper">
 			<div id="input1">
 			</div>

@@ -3,6 +3,7 @@ include"info.php";
 
 	var_dump($_GET);
 
+
 	/*
 	if ($_SERVER["REQUEST_METHOD"] == "GET"):
 		
