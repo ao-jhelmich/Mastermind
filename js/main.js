@@ -103,16 +103,7 @@ function game(numberUc, numberGl) {
 	createUserBar();
 	createGrid();
 	GetRandomColours();
-	toggle();
-
-	addEventList();
-
-	function addEventList() {
-		colors.forEach( function(v, i){
-			
-			})
-	}
-	
+	toggle();	
 
 	//create the user bar
 	function createUserBar(){
@@ -174,7 +165,7 @@ function game(numberUc, numberGl) {
 
 	function UserInput(color){
 	 	userInput.push(color);
-	 	changeColorChoices(color);
+	 	changeGridToColor(color);
 	 	x++;
 	 	if(userInput.length === colorCode.length){
 	 		checkPattern();
@@ -182,7 +173,7 @@ function game(numberUc, numberGl) {
 	 	}
 	}
 
-	function changeColorChoices (argument) {
+	function changeGridToColor (argument) {
 		if (x === userChoices) {
 			j++;
 			x = 0;
