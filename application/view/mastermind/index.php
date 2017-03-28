@@ -4,18 +4,21 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Mastermind</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="<?php echo Config::get('URL'); ?>css/style2.css">
 </head>
 <body>
 	<button id="playButton">options</button>
-	<h1><time>00:00:00</time></h1>
+	
 	<div class="wrapper" id="wrapper">
-			<div id="input1">
+			<div id = "timer">
+			<h1></h1>
+			</div>
+			<div id="userBar">
 			</div>
 			<div id="playField">			
 			</div>
 	</div>
-	<script src="js/main.js"></script>
-	<script src="js/stopwatch.js"></script>
+	<script src="<?php echo Config::get('URL'); ?>js/main.js"></script>
+	<script src="<?php echo Config::get('URL'); ?>js/stopwatch.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 (function() {
+
 	optionMenu();
 
 	var playbtn = document.getElementById('playButton');
@@ -87,7 +88,7 @@ function optionMenu() {
 
 function game(numberUc, numberGl) {
 
-	var colors = ["red", "orange", "green", "yellow", "blue",  "purple", "white", "pink"];
+	var colors = ["red", "orange", "yellow", "green", "blue",  "purple", "pink", "black"];
 
 	var x = 0;
 	var j = 1;
@@ -105,12 +106,21 @@ function game(numberUc, numberGl) {
 	GetRandomColours();
 	toggle();	
 
+	//create the timer
+	function createTimer () {
+		var divTimer = document.getElementById('timer');
+		var timerh1 = document.createElement("h1");;
+		timerh1.innerHTML = "00:00:00";
+		divTimer.appendChild(timerh1);
+	}
+
 	//create the user bar
 	function createUserBar(){
 		colors.forEach( function(v, i) {
 			var para = document.createElement("button");
+			para.style.backgroundColor = colors[i];
 			para.id = colors[i];
-			var element = document.getElementById("input1");
+			var element = document.getElementById("userBar");
 			element.appendChild(para);
 			var element2 = document.getElementById(colors[i]);
 				element2.addEventListener("click", function () {
@@ -160,7 +170,7 @@ function game(numberUc, numberGl) {
 			var num = Math.floor(Math.random() * 7);
 				colorCode.push(colors[num]);
 		}
-		console.log(colorCode);
+		console.log(colorCode);	
 	}
 
 	function UserInput(color){
@@ -187,8 +197,8 @@ function game(numberUc, numberGl) {
 	function victory() {
 		console.log("Congratiolations!");
 		var name = prompt("Onder welke naam wil je je score opslaan?");
-		window.location.href = "php/main.php?name=" + name 
-								+ "&time=" + colorCode 
+		window.location.href = "insert/?name=" + name 
+								+ "&time=" + m+":"+s+":"+ms 
 								+ "&gameLength=" + gameLength
 								+ "&userChoices=" + userChoices; 
 	}
@@ -210,7 +220,6 @@ function game(numberUc, numberGl) {
 		var whitePin = 0;
 		for (var i = 0; i <= userInput.length -1; i++) {
 			if (tempColorCode[i] === userInput[i]) {
-				console.log(userInput[i], 'juiste plaats')
 				tempColorCode.splice(i, 1);
 				userInput.splice(i, 1);
 				i--;
@@ -220,13 +229,12 @@ function game(numberUc, numberGl) {
 		for (var i = 0; i <= userInput.length -1; i++) {
 			compare = tempColorCode.indexOf(userInput[i]);
 			if (compare > -1){
-				console.log(userInput[i], 'onjuiste plaats')
 				tempColorCode.splice(compare, 1);
 				userInput.splice(i, 1);
 				i--;
 				whitePin++;
 			}else{
-				console.log(userInput[i], 'bestaat niet')
+				//console.log(userInput[i], 'bestaat niet')
 			}
 		}
 		userInput.splice(0);
